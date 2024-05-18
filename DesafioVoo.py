@@ -20,7 +20,7 @@ print (flights)
 # leitura dos arquivos csv
 flight_df = pd.read_csv("/kaggle/input/flight-delays/flight.csv", dtype={'column_7': str, 'column_8': str}, low_memory=False)
 
-# Plotando o gráfico de violino para comparação dos atrasos de chegada por companhia aérea
+# dashboard de atrasos
 plt.figure(figsize=(12, 18))
 sns.violinplot(data=flight_df, x='AIRLINE', y='ARRIVAL_DELAY', palette='set2')
 plt.xlabel('Airline')
