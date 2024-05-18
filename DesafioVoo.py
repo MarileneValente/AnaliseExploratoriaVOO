@@ -9,7 +9,7 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
 
-# Lendo os arquivos CSV
+# para ler os arquivos csv
 airports = pd.read_csv('../../marilenevalentevieiradelacerda/Desktop/python/airports.csv')
 airlines = pd.read_csv('../../marilenevalentevieiradelacerda/Desktop/python/airlines.csv')
 flights = pd.read_csv('../../marilenevalentevieiradelacerda/Desktop/python/flights.csv')
@@ -17,7 +17,7 @@ print (airports)
 print (airlines)
 print (flights)
 
-# Lendo o arquivo CSV com especificação de dtype para evitar avisos de mistura de tipos
+# leitura dos arquivos csv
 flight_df = pd.read_csv("/kaggle/input/flight-delays/flight.csv", dtype={'column_7': str, 'column_8': str}, low_memory=False)
 
 # Plotando o gráfico de violino para comparação dos atrasos de chegada por companhia aérea
@@ -29,10 +29,10 @@ plt.title('Comparison of Arrival Delays by Airline (Violin Plot)')
 plt.xticks(rotation=45)
 plt.show()
 
-# Calculando a média dos atrasos de chegada por companhia aérea
+# cauculo da média de araso
 average_delay_by_airline = flight_df.groupby('AIRLINE')['ARRIVAL_DELAY'].mean().reset_index()
 
-# Plotando o gráfico de barras para atrasos médios de chegada por companhia aérea
+# dashboard de atrasos
 plt.figure(figsize=(12, 8))
 sns.barplot(data=average_delay_by_airline, x='AIRLINE', y='ARRIVAL_DELAY', palette='viridis')
 plt.xlabel('Airline')
